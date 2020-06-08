@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ditiezu 论坛手机端</title>
+    <link href="../PenguinUI/libs/styles/styles.css" type="text/css" rel="stylesheet"/>
+    <style>
+        html {
+            --primary50: #e1f3ee;
+            --primary100: #b6e1d3;
+            --primary200: #88cfb8;
+            --primary300: #5bbb9c;
+            --primary400: #3cac89;
+            --primary500: #289c77;
+            --primary600: #248f6b;
+            --primary700: #1e7f5c;
+            --primary800: #176f4f;
+            --primary900: #0b5235;
+            width: 100%;
+            height: fit-content;
+            display: block;
+            padding-top: 12.5vh;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        html, body {
+            width: 100%;
+            background: transparent;
+        }
+
+        html {
+            background: url(./bg.svg) no-repeat #0b5235ee;
+            background-size: 100vw;
+        }
+
+        #content {
+            width: fit-content;
+            text-align: center;
+            margin: 0 auto;
+            z-index: 999;
+        }
+
+        .content {
+            text-align: center;
+            padding: 24px 12px 72px 12px;
+            background: #ffffffee;
+            border-radius: 12px;
+            box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, .3);
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 4rem;
+            color: #000;
+        }
+
+        .slogan {
+            text-align: center;
+            font-weight: 300;
+            font-size: 36px;
+            line-height: 1.23em;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .tips {
+            margin: 24px 0;
+        }
+
+        .update_log {
+            display: block;
+            padding: 12px 24px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 5px 4px 20px 0 rgba(0, 0, 0, .2);
+            min-width: 50vw;
+            max-width: 75vw;
+            width: 720px;
+            margin-top: 72px;
+            z-index: 99999;
+        }
+
+        .versionName {
+            font: 400 1.5rem/1 "sans-serif";
+            border-bottom: 1px solid #444;
+            width: fit-content;
+            padding: 0 0 12px 0;
+            min-width: 360px;
+            color: #666;
+        }
+
+        .versionDate {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .versionLog {
+            margin-top: 12px;
+            color: #000;
+            font-size: 15px;
+        }
+
+        #log > div {
+            margin: 24px 0;
+        }
+
+        div#log {
+            text-align: left;
+            margin: 0 auto;
+            width: fit-content;
+            margin-top: 72px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content">
+    <div class="content">
+        <h1>Ditiezu</h1>
+        <div class="slogan">地下铁的故事发生于此</div>
+        <button class="btn btn-lg btn-primary" ripple onclick="window.open('https://passionpenguin.coding.net/api/share/download/0fa9eb8c-6255-4a97-b7cb-41c64e5b1699')">下载 APK (Android)</button>
+        <div class="tips">适用于 Android 6.0 (API 23) 或更高版本。</div>
+        <div class="tips">下载 Ditiezu 即表示您同意接受 本软件 服务条款以及 论坛 等附加服务条款</div>
+    </div>
+    <div class="update_log">
+        <h2>更新日志</h2>
+        <div id="log"></div>
+    </div>
+</div>
+</body>
+<script src="../PenguinUI/libs/scripts/main.js"></script>
+<script>
+    let xhr = new XMLHttpRequest();
+    if (["github", "gitee"].indexOf(window.location.hostname) !== -1)
+        xhr.open("get", `https://www.${window.location.host}.com/PassionPenguin/Ditiezu/raw/v2/CHANGELOG.json`);
+    else if (window.location.hostname === "127.0.0.1")
+        xhr.open("get", `http://127.0.0.1/Ditiezu/CHANGELOG.json`);
+    else xhr.open("get", `https://www.github.com/PassionPenguin/Ditiezu/raw/v2/CHANGELOG.json`);
+    xhr.send();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+            let json = JSON.parse(xhr.responseText);
+            let Container = $("#log")[0];
+            for (let i = json['changelog_history'].length - 1; i >= 0; i--) {
+                let e = json['changelog_history'][i];
+                Container.appendNewChild({
+                    type: "div",
+                    innerHTML: `<div class='versionName'>${e['versionName']}</div><div class="versionDate">${e["versionDate"]}</div><div class="versionLog">${e["versionLog"]}</div>`
+                })
+            }
+        }
+    }
+</script>
+</html>
