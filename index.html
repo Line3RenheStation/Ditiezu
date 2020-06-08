@@ -132,11 +132,7 @@
 <script src="../PenguinUI/libs/scripts/main.js"></script>
 <script>
     let xhr = new XMLHttpRequest();
-    if (["github", "gitee"].indexOf(window.location.hostname) !== -1)
-        xhr.open("get", `https://www.${window.location.host}.com/PassionPenguin/Ditiezu/raw/v2/CHANGELOG.json`);
-    else if (window.location.hostname === "127.0.0.1")
-        xhr.open("get", `http://127.0.0.1/Ditiezu/CHANGELOG.json`);
-    else xhr.open("get", `https://www.github.com/PassionPenguin/Ditiezu/raw/v2/CHANGELOG.json`);
+    xhr.open("get", "CHANGELOG.json");
     xhr.send();
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
