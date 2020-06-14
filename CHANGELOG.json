@@ -120,6 +120,72 @@
       "versionName": "Watermelon Milkshake v6.1",
       "versionDate": "Mon Jun 08 2020 21:49:14 GMT+0800 (中国标准时间)",
       "versionLog": "修复错误，更新布局"
+    },
+    {
+      "versionCode": 23,
+      "versionName": "Watermelon Milkshake v6.2",
+      "versionDate": "Mon Jun 08 2020 22:28:34 GMT+0800 (中国标准时间)",
+      "versionLog": "将部分库迁移至Kotlin架构"
+    },
+    {
+      "versionCode": 24,
+      "versionName": "Watermelon Milkshake v6.3",
+      "versionDate": "Tue Jun 09 2020 20:12:56 GMT+0800 (中国标准时间)",
+      "versionLog": "修复错误"
+    },
+    {
+      "versionCode": 25,
+      "versionName": "Watermelon Milkshake v6.4",
+      "versionDate": "Tue Jun 09 2020 21:59:17 GMT+0800 (中国标准时间)",
+      "versionLog": "修复错误 - 支持图像"
+    },
+    {
+      "versionCode": 26,
+      "versionName": "Watermelon Milkshake v6.5",
+      "versionDate": "Wed Jun 10 2020 20:13:22 GMT+0800 (中国标准时间)",
+      "versionLog": "修复错误 - 支持图像，优化布局"
+    },
+    {
+      "versionCode": 28,
+      "versionName": "Watermelon Milkshake v6.6",
+      "versionDate": "Wed Jun 10 2020 22:26:03 GMT+0800 (中国标准时间)",
+      "versionLog": "修复错误，支持表情，迁移设置，在首页弹出更新通知"
+    },
+    {
+      "versionCode": 29,
+      "versionName": "Watermelon Milkshake v7",
+      "versionDate": "Thu Jun 11 2020 22:21:01 GMT+0800 (中国标准时间)",
+      "versionLog": "修复错误，支持评分，修改布局"
+    },
+    {
+      "versionCode": 30,
+      "versionName": "Watermelon Milkshake v7.1",
+      "versionDate": "Fri Jun 12 2020 00:01:58 GMT+0800 (中国标准时间)",
+      "versionLog": "优化布局，修复错误"
+    },
+    {
+      "versionCode": 31,
+      "versionName": "Watermelon Milkshake v7.2",
+      "versionDate": "Fri Jun 12 2020 00:01:58 GMT+0800 (中国标准时间)",
+      "versionLog": "支持显示评分数据，移除无用内容，修复错误（回复与编辑）"
+    },
+    {
+      "versionCode": 32,
+      "versionName": "Watermelon Milkshake v7.3",
+      "versionDate": "Fri Jun 12 2020 21:48:01 GMT+0800 (中国标准时间)",
+      "versionLog": "修复错误(thread - view)"
+    },
+    {
+      "versionCode": 33,
+      "versionName": "Watermelon Milkshake v8",
+      "versionDate": "Sat Jun 13 2020 19:01:00 GMT+0800 (中国标准时间)",
+      "versionLog": "支持上传并发送图片，修复致命错误，使用Glide优化加载速度"
+    },
+    {
+      "versionCode": 34,
+      "versionName": "Watermelon Milkshake v8.1",
+      "versionDate": "Sun Jun 14 2020 00:20:51 GMT+0800 (中国标准时间)",
+      "versionLog": "支持对图片进行有损（75）/无损（未开放）压缩，更新样式"
     }
   ]
 }
