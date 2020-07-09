@@ -140,7 +140,11 @@
             let Container = $("#log")[0];
             for (let i = json['changelog_history'].length - 1; i >= 0; i--) {
                 let e = json['changelog_history'][i];
-                Container.appendNewChild({
+                if(e['versionName'] === undefined) Container.appendNewChild({
+                        type: "div",
+                        innerHTML: `<div class='versionName'>${e['debugName']} <span class='badge'>[DEBUG]</span></div><div class="versionDate">${e["debugDate"]}</div><div class="versionLog">${e["debugLog"]}</div>`
+                    })
+                else  Container.appendNewChild({
                     type: "div",
                     innerHTML: `<div class='versionName'>${e['versionName']}</div><div class="versionDate">${e["versionDate"]}</div><div class="versionLog">${e["versionLog"]}</div>`
                 })
