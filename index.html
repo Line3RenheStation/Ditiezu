@@ -1,155 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ditiezu 论坛手机端</title>
-    <link href="https://passionpenguin.gitee.io/PenguinUI/libs/styles/styles.css" type="text/css" rel="stylesheet"/>
-    <style>
-        html {
-            --primary50: #e1f3ee;
-            --primary100: #b6e1d3;
-            --primary200: #88cfb8;
-            --primary300: #5bbb9c;
-            --primary400: #3cac89;
-            --primary500: #289c77;
-            --primary600: #248f6b;
-            --primary700: #1e7f5c;
-            --primary800: #176f4f;
-            --primary900: #0b5235;
-            width: 100%;
-            height: fit-content;
-            display: block;
-            padding-top: 12.5vh;
-            margin: 0 auto;
-            z-index: 1;
-        }
-
-        html, body {
-            width: 100%;
-            background: transparent;
-        }
-
-        html {
-            background: url(./bg.svg) no-repeat #0b5235ee;
-            background-size: 100vw;
-        }
-
-        #content {
-            width: fit-content;
-            text-align: center;
-            margin: 0 auto;
-            z-index: 999;
-        }
-
-        .content {
-            text-align: center;
-            padding: 24px 12px 72px 12px;
-            background: var(--light);
-            border-radius: 12px;
-            box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, .3);
-        }
-
-        h1 {
-            font-weight: 700;
-            font-size: 4rem;
-            color: var(--dark);
-        }
-
-        .slogan {
-            text-align: center;
-            font-weight: 300;
-            font-size: 36px;
-            line-height: 1.23em;
-            margin-top: 25px;
-            margin-bottom: 25px;
-        }
-
-        .tips {
-            margin: 12px 0;
-            font-size: 12px;
-        }
-
-        .update_log {
-            display: block;
-            padding: 12px 24px;
-            background: var(--light);
-            border-radius: 12px;
-            box-shadow: 5px 4px 20px 0 rgba(0, 0, 0, .2);
-            min-width: 50vw;
-            max-width: 75vw;
-            width: 720px;
-            margin-top: 72px;
-            z-index: 99999;
-        }
-
-        .versionName {
-            font: 400 1.5rem/1 "sans-serif";
-            border-bottom: 1px solid #444;
-            width: fit-content;
-            padding: 0 0 12px 0;
-            min-width: 360px;
-            color: var(--dark);
-        }
-
-        .versionDate {
-            font-size: 12px;
-            color: var(--dark);
-        }
-
-        .versionLog {
-            margin-top: 12px;
-            color: var(--black);
-            font-size: 15px;
-        }
-
-        #log > div {
-            margin: 24px 0;
-        }
-
-        div#log {
-            text-align: left;
-            width: fit-content;
-            margin: 72px auto 0;
-        }
-
-    </style>
-</head>
-<body>
-<div id="content">
-    <div class="content">
-        <h1>Ditiezu</h1>
-        <div class="slogan">地下铁的故事发生于此</div>
-        <button class="btn btn-lg btn-success" ripple onclick="window.open('https://passionpenguin.coding.net/api/share/download/0fa9eb8c-6255-4a97-b7cb-41c64e5b1699')">下载 APK (Android)</button>
-        <div class="tips">适用于 Android 6.0 (API 23) 或更高版本。</div>
-        <div class="tips">下载 Ditiezu 即表示您同意接受 本软件 服务条款以及 论坛 等附加服务条款</div>
-    </div>
-    <div class="update_log">
-        <h2 class='text-success'>更新日志</h2>
-        <div id="log"></div>
-    </div>
-</div>
-</body>
-<script src="https://passionpenguin.gitee.io/PenguinUI/libs/scripts/main.js"></script>
-<script>
-    let xhr = new XMLHttpRequest();
-    xhr.open("get", "CHANGELOG.json");
-    xhr.send();
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
-            let json = JSON.parse(xhr.responseText);
-            let Container = $("#log")[0];
-            for (let i = json['changelog_history'].length - 1; i >= 0; i--) {
-                let e = json['changelog_history'][i];
-                if(e['versionName'] === undefined) Container.appendNewChild({
-                        type: "div",
-                        innerHTML: `<div class='versionName'>${e['debugName']} <span class='badge'>[DEBUG]</span></div><div class="versionDate">${e["debugDate"]}</div><div class="versionLog">${e["debugLog"]}</div>`
-                    })
-                else  Container.appendNewChild({
-                    type: "div",
-                    innerHTML: `<div class='versionName'>${e['versionName']}</div><div class="versionDate">${e["versionDate"]}</div><div class="versionLog">${e["versionLog"]}</div>`
-                })
-            }
-        }
-    }
-</script>
+<!Doctype html>
+<html>
+    <head>
+        <title>Ditiezu App</title>
+    </head>
+    <body>
+        <article class="markdown-body entry-content container-lg" itemprop="text">
+            <h1>
+                <a id="user-content-readme" class="anchor" aria-hidden="true" href="#readme">
+                    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z" />
+                    </svg>
+                </a>
+                README
+            </h1>
+            <p><a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/01a66b0bf523a319d2e4b804342056b6508399ea/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f56455253494f4e2d31302e322e33253230283434292d736b79626c7565"><img src="https://camo.githubusercontent.com/01a66b0bf523a319d2e4b804342056b6508399ea/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f56455253494f4e2d31302e322e33253230283434292d736b79626c7565" alt="" data-canonical-src="https://img.shields.io/badge/VERSION-10.2.3%20(44)-skyblue" style="max-width:100%;"></a> <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/6d62b38a5dd861e22a3ae5d9b0e63f3ae6dce85c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53544154452d444550524543415445442d726564"><img src="https://camo.githubusercontent.com/6d62b38a5dd861e22a3ae5d9b0e63f3ae6dce85c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53544154452d444550524543415445442d726564" alt="" data-canonical-src="https://img.shields.io/badge/STATE-DEPRECATED-red" style="max-width:100%;"></a></p>
+            <p>An application designed for Ditiezu BBS with Kotlin for Android Platform.</p>
+        </article>
+    </body>
 </html>
